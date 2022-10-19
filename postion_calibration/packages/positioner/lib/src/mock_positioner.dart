@@ -10,14 +10,18 @@ class MockPositioner extends Positioner {
   MockPositioner({
     bool brokenRead = false,
     bool brokenWrite = false,
-    double minPosition = -10.0,
-    double maxPosition = 10.0,
     double position = 0,
   })  : _brokenRead = brokenRead,
         _brokenWrite = brokenWrite,
-        _minPosition = minPosition,
-        _maxPosition = maxPosition,
         _position = position,
+        assert(
+            position <= Positioner.maxPosition,
+            'position must be less than or equal to '
+            '${Positioner.maxPosition}'),
+        assert(
+            position >= Positioner.minPosition,
+            'position must be grearter than or equal to '
+            '${Positioner.minPosition}'),
         super();
 
   ///Used to test the case where the positioner can't read
@@ -25,14 +29,6 @@ class MockPositioner extends Positioner {
 
   ///Used to test the case where the positioner can't write
   final bool _brokenWrite;
-
-  ///The maximum position the positioner can be commanded to without causing an
-  /// out of range condition
-  final double _maxPosition;
-
-  ///The minimum position the positioner can be commanded to without causing an
-  /// out of range condition
-  final double _minPosition;
 
   ///This is the positioner's current position
   double _position;
@@ -48,10 +44,10 @@ class MockPositioner extends Positioner {
   /// {@endtemplate}
   @override
   Either<PositionerFailure, double> moveMirrorToPosition(double position) {
-    if (position > _maxPosition) {
+    if (position > Positioner.maxPosition) {
       return left(const PositionerFailure.maxUpperLimit());
     }
-    if (position < _minPosition) {
+    if (position < Positioner.minPosition) {
       return left(const PositionerFailure.maxLowerLimit());
     }
     if (_brokenRead) {
@@ -71,15 +67,11 @@ class MockPositioner extends Positioner {
   MockPositioner copyWith({
     bool? brokenRead,
     bool? brokenWrite,
-    double? maxPosition,
-    double? minPosition,
     double? position,
   }) {
     return MockPositioner(
       brokenRead: brokenRead ?? _brokenRead,
       brokenWrite: brokenWrite ?? _brokenWrite,
-      maxPosition: maxPosition ?? _maxPosition,
-      minPosition: minPosition ?? _minPosition,
       position: position ?? _position,
     );
   }
@@ -87,7 +79,6 @@ class MockPositioner extends Positioner {
   @override
   String toString() {
     return 'MockPositioner(_brokenRead: $_brokenRead, _brokenWrite: '
-        '$_brokenWrite, _maxPosition: $_maxPosition, _minPosition: '
-        '$_minPosition, _position: $_position)';
+        '$_brokenWrite, _position: $_position)';
   }
 }

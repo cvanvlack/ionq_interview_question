@@ -6,23 +6,19 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:dartz/dartz.dart';
-import 'package:positioner/src/mock_positioner.dart';
-import 'package:positioner/src/positioner_failure.dart';
+import 'package:positioner/positioner.dart';
+
 // ignore_for_file: prefer_const_constructors
 import 'package:test/test.dart';
 
 void main() {
   group('MockPositioner', () {
-    const startingPosition = 1.0;
-    const maxLimit = 11.0;
-    const minLimit = -11.0;
+    const startingPosition = 0.5;
 
     late MockPositioner defaultMockPositioner;
 
     setUp(() async {
       defaultMockPositioner = MockPositioner(
-        maxPosition: maxLimit,
-        minPosition: minLimit,
         position: startingPosition,
       );
       // print(defaultMockPositioner);
@@ -33,7 +29,7 @@ void main() {
     });
 
     test('Broken reads throw an error', () {
-      const newPosition = 2.0;
+      const newPosition = 0.75;
       final positioner = defaultMockPositioner.copyWith(
         brokenRead: true,
       );
@@ -51,7 +47,7 @@ void main() {
       );
     });
     test('Broken writes throw an error', () {
-      const newPosition = 2.0;
+      const newPosition = 0.75;
       final positioner = defaultMockPositioner.copyWith(
         brokenWrite: true,
       );
@@ -69,10 +65,10 @@ void main() {
     });
 
     test("Can't go above max limit", () {
-      const newPosition = 12.0;
       //create a new object from the default because the MockPosition has a
       //tate.
       final positioner = defaultMockPositioner.copyWith();
+      const newPosition = Positioner.maxPosition + 1;
       expect(
         positioner.moveMirrorToPosition(newPosition),
         left<PositionerFailure, double>(
@@ -87,11 +83,10 @@ void main() {
     });
 
     test("Can't go below min limit", () {
-      const newPosition = -12.0;
       //create a new object from the default because the MockPosition has a
       //state.
       final positioner = defaultMockPositioner.copyWith();
-
+      const newPosition = Positioner.minPosition - 1;
       expect(
         positioner.moveMirrorToPosition(newPosition),
         left<PositionerFailure, double>(
@@ -110,13 +105,13 @@ void main() {
       //state.
       final positioner = defaultMockPositioner.copyWith();
       expect(
-        positioner.moveMirrorToPosition(maxLimit),
-        right<PositionerFailure, double>(maxLimit),
+        positioner.moveMirrorToPosition(Positioner.maxPosition),
+        right<PositionerFailure, double>(Positioner.maxPosition),
       );
       //On a failure the positioner should be at the same position
       expect(
         positioner.position,
-        maxLimit,
+        Positioner.maxPosition,
       );
     });
 
@@ -125,17 +120,17 @@ void main() {
       //state.
       final positioner = defaultMockPositioner.copyWith();
       expect(
-        positioner.moveMirrorToPosition(minLimit),
-        right<PositionerFailure, double>(minLimit),
+        positioner.moveMirrorToPosition(Positioner.minPosition),
+        right<PositionerFailure, double>(Positioner.minPosition),
       );
       expect(
         positioner.position,
-        minLimit,
+        Positioner.minPosition,
       );
     });
 
-    test('Can go within limits positive', () {
-      const newPosition = 2.0;
+    test('Can go within limits higher than starting position', () {
+      const newPosition = 0.75;
       //create a new object from the default because the MockPosition has a
       //state.
       final positioner = defaultMockPositioner.copyWith();
@@ -149,8 +144,8 @@ void main() {
         newPosition,
       );
     });
-    test('Can go within limits negative', () {
-      const newPosition = -2.0;
+    test('Can go within limits lower than starting position', () {
+      const newPosition = 0.25;
       //create a new object from the default because the MockPosition has a
       //state.
       final positioner = defaultMockPositioner.copyWith();
@@ -165,7 +160,7 @@ void main() {
       );
     });
 
-    test('Can go within limits 0', () {
+    test('Can go to 0', () {
       const newPosition = 0.0;
       //create a new object from the default because the MockPosition has a
       //state.

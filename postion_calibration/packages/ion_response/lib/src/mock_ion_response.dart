@@ -9,6 +9,7 @@ import 'package:positioner/positioner.dart';
 class MockIonResponse extends IonResponse {
   /// {@macro mock_ion_response}
   MockIonResponse({
+    required super.numMeasurements,
     required Positioner xPositioner,
     required Positioner yPositioner,
     double actualXPosition = 0,
@@ -41,18 +42,26 @@ class MockIonResponse extends IonResponse {
 
   /// {@template measure_ion_response}
   /// This function meausres the ion response of the system. For the mock object
-  /// this is calculated via a Gaussian distribution from the center.
+  /// this is calculated via a Gaussian distribution from the center,
+  /// multiplied by 100.
   /// {@endtemplate}
   @override
-  Either<IonResponseFailure, double> measureIonResponse() {
+  Either<IonResponseFailure, int> measureIonResponse() {
     if (_brokenRead) {
       return left(const IonResponseFailure.ionResponseReadFailure());
     }
-    return right(
-      _gaussian.calculate(
-        _xPositioner.position,
-        _yPositioner.position,
-      ),
-    );
+    final numPhotons = (_gaussian.calculate(
+              _xPositioner.position,
+              _yPositioner.position,
+            ) *
+            100)
+        .round();
+    if (numPhotons < minNumPhotons) {
+      return left(const IonResponseFailure.ionResponseReadFailure());
+    }
+    if (numPhotons > maxNumPhotons) {
+      return left(const IonResponseFailure.ionResponseReadFailure());
+    }
+    return right(numPhotons);
   }
 }

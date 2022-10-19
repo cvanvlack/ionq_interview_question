@@ -13,11 +13,13 @@ import 'package:test/test.dart';
 
 void main() {
   group('IonResponse', () {
-    const xstartingPosition = 1.0;
-    const ystartingPosition = 1.0;
-    const xPosition = 1.0;
-    const yPosition = 1.0;
-    const std = 2.0;
+    const xStartingPosition = 0.5;
+    const yStartingPosition = 0.5;
+    const xActualPosition = 0.5;
+    const yActualPosition = 0.5;
+    const std = 0.1;
+
+    const numMeasurements = 100;
 
     const epsilon = 1e-6;
 
@@ -28,18 +30,19 @@ void main() {
 
     setUp(() async {
       xPositioner = MockPositioner(
-        position: xstartingPosition,
+        position: xStartingPosition,
       );
       yPositioner = MockPositioner(
-        position: ystartingPosition,
+        position: yStartingPosition,
       );
 
       mockIonResponse = MockIonResponse(
-        actualXPosition: xPosition,
-        actualYPosition: yPosition,
+        actualXPosition: xActualPosition,
+        actualYPosition: yActualPosition,
         xPositioner: xPositioner,
         yPositioner: yPositioner,
         interactionWidth: std,
+        numMeasurements: numMeasurements,
       );
     });
     test('can be instantiated', () {
@@ -48,12 +51,13 @@ void main() {
 
     test('Broken reads throw an error', () {
       final brokenIonResponse = MockIonResponse(
-        actualXPosition: xPosition,
-        actualYPosition: yPosition,
+        actualXPosition: xActualPosition,
+        actualYPosition: yActualPosition,
         xPositioner: xPositioner,
         yPositioner: yPositioner,
         interactionWidth: std,
         brokenRead: true,
+        numMeasurements: numMeasurements,
       );
       expect(
         brokenIonResponse.measureIonResponse(),
@@ -63,15 +67,24 @@ void main() {
       );
     });
     test('Test response at center, then at 1 standard deviation away', () {
-      final actualAtCenter =
-          mockIonResponse.measureIonResponse().getOrElse(() => double.infinity);
-      const expectedAtCenter = 1.0;
+      final actualAtCenter = mockIonResponse.measureIonResponse().fold(
+        (_) {
+          return mockIonResponse.minNumPhotons - 1;
+        },
+        (r) => r,
+      );
+      const expectedAtCenter = numMeasurements;
+
       expect((actualAtCenter - expectedAtCenter).abs() < epsilon, true);
 
-      xPositioner.moveMirrorToPosition(xstartingPosition + std);
-      final actualAtStd =
-          mockIonResponse.measureIonResponse().getOrElse(() => double.infinity);
-      const expectedAtStd = 0.60653;
+      xPositioner.moveMirrorToPosition(xStartingPosition + std);
+      final actualAtStd = mockIonResponse.measureIonResponse().fold(
+        (_) {
+          return mockIonResponse.minNumPhotons - 1;
+        },
+        (r) => r,
+      );
+      const expectedAtStd = 61;
 
       expect((actualAtStd - expectedAtStd).abs() < epsilon, true);
     });
