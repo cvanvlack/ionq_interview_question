@@ -3,7 +3,7 @@ import 'package:gaussian/gaussian.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('IonResponse', () {
+  group('Gaussian', () {
     const r0 = 1.0;
     const std = 2.0;
 
