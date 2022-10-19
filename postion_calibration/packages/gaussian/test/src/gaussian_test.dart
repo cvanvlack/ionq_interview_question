@@ -21,11 +21,15 @@ void main() {
     });
     test('At exact position, should equal 1', () {
       const expected = 1.0;
-      expect((defaultGaussian.calculate(r0) - expected) < epsilon, true);
+      final actual = defaultGaussian.calculate(r0);
+
+      expect((actual - expected).abs() < epsilon, true);
     });
     test('At 1 std should be 0.60653', () {
       const expected = 0.60653;
-      expect((defaultGaussian.calculate(r0 + std) - expected) < epsilon, true);
+      final actual = defaultGaussian.calculate(r0 + std);
+
+      expect((actual - expected).abs() < epsilon, true);
     });
   });
 }

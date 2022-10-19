@@ -23,25 +23,21 @@ void main() {
     });
     test('At exact position, should equal 1', () {
       const expected = 1.0;
-      expect(
-        (defaultGaussian.calculate(x0, y0) - expected) < epsilon,
-        true,
-      );
+      final actual = defaultGaussian.calculate(x0, y0);
+      expect((actual - expected).abs() < epsilon, true);
     });
     test('At 1 std in x should be 0.60653', () {
       const expected = 0.60653;
-      expect(
-        (defaultGaussian.calculate(x0 + std, y0) - expected) < epsilon,
-        true,
-      );
+      final actual = defaultGaussian.calculate(x0 + std, y0);
+
+      expect((actual - expected).abs() < epsilon, true);
     });
 
     test('At 1 std in y should be 0.60653', () {
       const expected = 0.60653;
-      expect(
-        (defaultGaussian.calculate(x0, y0 + std) - expected) < epsilon,
-        true,
-      );
+      final actual = defaultGaussian.calculate(x0, y0 + std);
+
+      expect((actual - expected).abs() < epsilon, true);
     });
   });
 }
