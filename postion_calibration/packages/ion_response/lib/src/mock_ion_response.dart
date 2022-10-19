@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:gaussian/gaussian.dart';
 import 'package:ion_response/ion_response.dart';
-import 'package:meta/meta.dart';
 import 'package:positioner/positioner.dart';
 
 /// {@template mock_positioner}
@@ -49,9 +48,11 @@ class MockIonResponse extends IonResponse {
     if (_brokenRead) {
       return left(const IonResponseFailure.ionResponseReadFailure());
     }
-    return right(_gaussian.calculate(
-      _xPositioner.position,
-      _yPositioner.position,
-    ));
+    return right(
+      _gaussian.calculate(
+        _xPositioner.position,
+        _yPositioner.position,
+      ),
+    );
   }
 }
