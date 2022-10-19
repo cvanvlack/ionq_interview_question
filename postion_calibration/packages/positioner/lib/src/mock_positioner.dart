@@ -34,7 +34,7 @@ class MockPositioner extends Positioner {
   /// out of range condition
   final double _minPosition;
 
-  ///This is the positioners current position
+  ///This is the positioner's current position
   double _position;
 
   ///Gets the current position
@@ -64,8 +64,8 @@ class MockPositioner extends Positioner {
     return right(_position);
   }
 
-  /// {@template move_mirror_to_position}
-  /// Creating a copyWith so that we can save some copy/paste in the testing.
+  /// {@template copy_with}
+  /// Provides copyWith
   /// {@endtemplate}
   @visibleForTesting
   MockPositioner copyWith({
