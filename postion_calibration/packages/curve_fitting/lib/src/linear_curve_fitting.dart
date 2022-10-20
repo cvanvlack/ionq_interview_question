@@ -22,7 +22,10 @@ class LinearCurveFitter extends CurveFitter {
   }
 
   List<InterpolationNode> _onlyTwoNodes(
-      List<double> xvals, List<double> yvals, double x) {
+    List<double> xvals,
+    List<double> yvals,
+    double x,
+  ) {
     //Intentionally not doing any error checking...
     final i = xvals.indexWhere((element) => element > x);
     final newXvals = [xvals[i - 1], xvals[i]];
