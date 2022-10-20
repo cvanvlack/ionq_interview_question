@@ -2,7 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:ion_response/ion_response.dart';
 
 /// {@template ion_response}
-/// This is the class responsible for measuring the response from the ion.
+/// This is the class the provides the interface for concrete implementations 
+/// which are responsible for measuring the response from the ion.
 /// {@endtemplate}
 abstract class IonResponse {
   /// {@macro ion_response}

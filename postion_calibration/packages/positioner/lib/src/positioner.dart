@@ -2,7 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:positioner/positioner.dart';
 
 /// {@template positioner}
-/// This is the class responsible for positioning the the laser along a single
+/// This is the class provides an interface to different kinds of positioners, 
+/// which are responsible for positioning the the laser along a single
 /// axis. The positioner can travel between 0 and 1 inclusive.
 /// {@endtemplate}
 abstract class Positioner {
