@@ -32,4 +32,10 @@ class PositionerFailure with _$PositionerFailure {
   /// {@endtemplate}
   const factory PositionerFailure.maxLowerLimit([String? message]) =
       MaxLowerLimit;
+
+  /// {@template positioner_unknown_failure}
+  /// Returned if there are any unknown errors with the positioner
+  /// {@endtemplate}
+  const factory PositionerFailure.unknown([String? message]) =
+      UnknownPositionerFailure;
 }

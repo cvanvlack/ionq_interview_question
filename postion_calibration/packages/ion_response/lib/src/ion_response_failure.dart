@@ -14,4 +14,10 @@ class IonResponseFailure with _$IonResponseFailure {
   /// {@endtemplate}
   const factory IonResponseFailure.ionResponseReadFailure([String? message]) =
       IonResponseReadFailure;
+
+  /// {@template ion_response_unknown_failure}
+  /// Returned if there are any unknown errors with the ion response
+  /// {@endtemplate}
+  const factory IonResponseFailure.unknown([String? message]) =
+      UnknownIonResponseFailure;
 }

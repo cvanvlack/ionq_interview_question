@@ -20,16 +20,19 @@ mixin _$IonResponseFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? message) ionResponseReadFailure,
+    required TResult Function(String? message) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? message)? ionResponseReadFailure,
+    TResult? Function(String? message)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? message)? ionResponseReadFailure,
+    TResult Function(String? message)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -37,16 +40,19 @@ mixin _$IonResponseFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(IonResponseReadFailure value)
         ionResponseReadFailure,
+    required TResult Function(UnknownIonResponseFailure value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(IonResponseReadFailure value)? ionResponseReadFailure,
+    TResult? Function(UnknownIonResponseFailure value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(IonResponseReadFailure value)? ionResponseReadFailure,
+    TResult Function(UnknownIonResponseFailure value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -157,6 +163,7 @@ class _$IonResponseReadFailure implements IonResponseReadFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? message) ionResponseReadFailure,
+    required TResult Function(String? message) unknown,
   }) {
     return ionResponseReadFailure(message);
   }
@@ -165,6 +172,7 @@ class _$IonResponseReadFailure implements IonResponseReadFailure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String? message)? ionResponseReadFailure,
+    TResult? Function(String? message)? unknown,
   }) {
     return ionResponseReadFailure?.call(message);
   }
@@ -173,6 +181,7 @@ class _$IonResponseReadFailure implements IonResponseReadFailure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? message)? ionResponseReadFailure,
+    TResult Function(String? message)? unknown,
     required TResult orElse(),
   }) {
     if (ionResponseReadFailure != null) {
@@ -186,6 +195,7 @@ class _$IonResponseReadFailure implements IonResponseReadFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(IonResponseReadFailure value)
         ionResponseReadFailure,
+    required TResult Function(UnknownIonResponseFailure value) unknown,
   }) {
     return ionResponseReadFailure(this);
   }
@@ -194,6 +204,7 @@ class _$IonResponseReadFailure implements IonResponseReadFailure {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(IonResponseReadFailure value)? ionResponseReadFailure,
+    TResult? Function(UnknownIonResponseFailure value)? unknown,
   }) {
     return ionResponseReadFailure?.call(this);
   }
@@ -202,6 +213,7 @@ class _$IonResponseReadFailure implements IonResponseReadFailure {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(IonResponseReadFailure value)? ionResponseReadFailure,
+    TResult Function(UnknownIonResponseFailure value)? unknown,
     required TResult orElse(),
   }) {
     if (ionResponseReadFailure != null) {
@@ -221,4 +233,145 @@ abstract class IonResponseReadFailure implements IonResponseFailure {
   @JsonKey(ignore: true)
   _$$IonResponseReadFailureCopyWith<_$IonResponseReadFailure> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UnknownIonResponseFailureCopyWith<$Res>
+    implements $IonResponseFailureCopyWith<$Res> {
+  factory _$$UnknownIonResponseFailureCopyWith(
+          _$UnknownIonResponseFailure value,
+          $Res Function(_$UnknownIonResponseFailure) then) =
+      __$$UnknownIonResponseFailureCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? message});
+}
+
+/// @nodoc
+class __$$UnknownIonResponseFailureCopyWithImpl<$Res>
+    extends _$IonResponseFailureCopyWithImpl<$Res, _$UnknownIonResponseFailure>
+    implements _$$UnknownIonResponseFailureCopyWith<$Res> {
+  __$$UnknownIonResponseFailureCopyWithImpl(_$UnknownIonResponseFailure _value,
+      $Res Function(_$UnknownIonResponseFailure) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$UnknownIonResponseFailure(
+      freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UnknownIonResponseFailure implements UnknownIonResponseFailure {
+  const _$UnknownIonResponseFailure([this.message]);
+
+  @override
+  final String? message;
+
+  @override
+  String toString() {
+    return 'IonResponseFailure.unknown(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UnknownIonResponseFailure &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UnknownIonResponseFailureCopyWith<_$UnknownIonResponseFailure>
+      get copyWith => __$$UnknownIonResponseFailureCopyWithImpl<
+          _$UnknownIonResponseFailure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? message) ionResponseReadFailure,
+    required TResult Function(String? message) unknown,
+  }) {
+    return unknown(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? message)? ionResponseReadFailure,
+    TResult? Function(String? message)? unknown,
+  }) {
+    return unknown?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? message)? ionResponseReadFailure,
+    TResult Function(String? message)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(IonResponseReadFailure value)
+        ionResponseReadFailure,
+    required TResult Function(UnknownIonResponseFailure value) unknown,
+  }) {
+    return unknown(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(IonResponseReadFailure value)? ionResponseReadFailure,
+    TResult? Function(UnknownIonResponseFailure value)? unknown,
+  }) {
+    return unknown?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(IonResponseReadFailure value)? ionResponseReadFailure,
+    TResult Function(UnknownIonResponseFailure value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UnknownIonResponseFailure implements IonResponseFailure {
+  const factory UnknownIonResponseFailure([final String? message]) =
+      _$UnknownIonResponseFailure;
+
+  @override
+  String? get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$UnknownIonResponseFailureCopyWith<_$UnknownIonResponseFailure>
+      get copyWith => throw _privateConstructorUsedError;
 }

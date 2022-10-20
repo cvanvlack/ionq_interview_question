@@ -23,6 +23,7 @@ mixin _$PositionerFailure {
     required TResult Function(String? message) positionerWriteFailure,
     required TResult Function(String? message) maxUpperLimit,
     required TResult Function(String? message) maxLowerLimit,
+    required TResult Function(String? message) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,6 +32,7 @@ mixin _$PositionerFailure {
     TResult? Function(String? message)? positionerWriteFailure,
     TResult? Function(String? message)? maxUpperLimit,
     TResult? Function(String? message)? maxLowerLimit,
+    TResult? Function(String? message)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +41,7 @@ mixin _$PositionerFailure {
     TResult Function(String? message)? positionerWriteFailure,
     TResult Function(String? message)? maxUpperLimit,
     TResult Function(String? message)? maxLowerLimit,
+    TResult Function(String? message)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +53,7 @@ mixin _$PositionerFailure {
         positionerWriteFailure,
     required TResult Function(MaxUpperLimit value) maxUpperLimit,
     required TResult Function(MaxLowerLimit value) maxLowerLimit,
+    required TResult Function(UnknownPositionerFailure value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +62,7 @@ mixin _$PositionerFailure {
     TResult? Function(PositionerWriteFailure value)? positionerWriteFailure,
     TResult? Function(MaxUpperLimit value)? maxUpperLimit,
     TResult? Function(MaxLowerLimit value)? maxLowerLimit,
+    TResult? Function(UnknownPositionerFailure value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +71,7 @@ mixin _$PositionerFailure {
     TResult Function(PositionerWriteFailure value)? positionerWriteFailure,
     TResult Function(MaxUpperLimit value)? maxUpperLimit,
     TResult Function(MaxLowerLimit value)? maxLowerLimit,
+    TResult Function(UnknownPositionerFailure value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -179,6 +185,7 @@ class _$PositionerReadFailure implements PositionerReadFailure {
     required TResult Function(String? message) positionerWriteFailure,
     required TResult Function(String? message) maxUpperLimit,
     required TResult Function(String? message) maxLowerLimit,
+    required TResult Function(String? message) unknown,
   }) {
     return positionerReadFailure(message);
   }
@@ -190,6 +197,7 @@ class _$PositionerReadFailure implements PositionerReadFailure {
     TResult? Function(String? message)? positionerWriteFailure,
     TResult? Function(String? message)? maxUpperLimit,
     TResult? Function(String? message)? maxLowerLimit,
+    TResult? Function(String? message)? unknown,
   }) {
     return positionerReadFailure?.call(message);
   }
@@ -201,6 +209,7 @@ class _$PositionerReadFailure implements PositionerReadFailure {
     TResult Function(String? message)? positionerWriteFailure,
     TResult Function(String? message)? maxUpperLimit,
     TResult Function(String? message)? maxLowerLimit,
+    TResult Function(String? message)? unknown,
     required TResult orElse(),
   }) {
     if (positionerReadFailure != null) {
@@ -218,6 +227,7 @@ class _$PositionerReadFailure implements PositionerReadFailure {
         positionerWriteFailure,
     required TResult Function(MaxUpperLimit value) maxUpperLimit,
     required TResult Function(MaxLowerLimit value) maxLowerLimit,
+    required TResult Function(UnknownPositionerFailure value) unknown,
   }) {
     return positionerReadFailure(this);
   }
@@ -229,6 +239,7 @@ class _$PositionerReadFailure implements PositionerReadFailure {
     TResult? Function(PositionerWriteFailure value)? positionerWriteFailure,
     TResult? Function(MaxUpperLimit value)? maxUpperLimit,
     TResult? Function(MaxLowerLimit value)? maxLowerLimit,
+    TResult? Function(UnknownPositionerFailure value)? unknown,
   }) {
     return positionerReadFailure?.call(this);
   }
@@ -240,6 +251,7 @@ class _$PositionerReadFailure implements PositionerReadFailure {
     TResult Function(PositionerWriteFailure value)? positionerWriteFailure,
     TResult Function(MaxUpperLimit value)? maxUpperLimit,
     TResult Function(MaxLowerLimit value)? maxLowerLimit,
+    TResult Function(UnknownPositionerFailure value)? unknown,
     required TResult orElse(),
   }) {
     if (positionerReadFailure != null) {
@@ -332,6 +344,7 @@ class _$PositionerWriteFailure implements PositionerWriteFailure {
     required TResult Function(String? message) positionerWriteFailure,
     required TResult Function(String? message) maxUpperLimit,
     required TResult Function(String? message) maxLowerLimit,
+    required TResult Function(String? message) unknown,
   }) {
     return positionerWriteFailure(message);
   }
@@ -343,6 +356,7 @@ class _$PositionerWriteFailure implements PositionerWriteFailure {
     TResult? Function(String? message)? positionerWriteFailure,
     TResult? Function(String? message)? maxUpperLimit,
     TResult? Function(String? message)? maxLowerLimit,
+    TResult? Function(String? message)? unknown,
   }) {
     return positionerWriteFailure?.call(message);
   }
@@ -354,6 +368,7 @@ class _$PositionerWriteFailure implements PositionerWriteFailure {
     TResult Function(String? message)? positionerWriteFailure,
     TResult Function(String? message)? maxUpperLimit,
     TResult Function(String? message)? maxLowerLimit,
+    TResult Function(String? message)? unknown,
     required TResult orElse(),
   }) {
     if (positionerWriteFailure != null) {
@@ -371,6 +386,7 @@ class _$PositionerWriteFailure implements PositionerWriteFailure {
         positionerWriteFailure,
     required TResult Function(MaxUpperLimit value) maxUpperLimit,
     required TResult Function(MaxLowerLimit value) maxLowerLimit,
+    required TResult Function(UnknownPositionerFailure value) unknown,
   }) {
     return positionerWriteFailure(this);
   }
@@ -382,6 +398,7 @@ class _$PositionerWriteFailure implements PositionerWriteFailure {
     TResult? Function(PositionerWriteFailure value)? positionerWriteFailure,
     TResult? Function(MaxUpperLimit value)? maxUpperLimit,
     TResult? Function(MaxLowerLimit value)? maxLowerLimit,
+    TResult? Function(UnknownPositionerFailure value)? unknown,
   }) {
     return positionerWriteFailure?.call(this);
   }
@@ -393,6 +410,7 @@ class _$PositionerWriteFailure implements PositionerWriteFailure {
     TResult Function(PositionerWriteFailure value)? positionerWriteFailure,
     TResult Function(MaxUpperLimit value)? maxUpperLimit,
     TResult Function(MaxLowerLimit value)? maxLowerLimit,
+    TResult Function(UnknownPositionerFailure value)? unknown,
     required TResult orElse(),
   }) {
     if (positionerWriteFailure != null) {
@@ -484,6 +502,7 @@ class _$MaxUpperLimit implements MaxUpperLimit {
     required TResult Function(String? message) positionerWriteFailure,
     required TResult Function(String? message) maxUpperLimit,
     required TResult Function(String? message) maxLowerLimit,
+    required TResult Function(String? message) unknown,
   }) {
     return maxUpperLimit(message);
   }
@@ -495,6 +514,7 @@ class _$MaxUpperLimit implements MaxUpperLimit {
     TResult? Function(String? message)? positionerWriteFailure,
     TResult? Function(String? message)? maxUpperLimit,
     TResult? Function(String? message)? maxLowerLimit,
+    TResult? Function(String? message)? unknown,
   }) {
     return maxUpperLimit?.call(message);
   }
@@ -506,6 +526,7 @@ class _$MaxUpperLimit implements MaxUpperLimit {
     TResult Function(String? message)? positionerWriteFailure,
     TResult Function(String? message)? maxUpperLimit,
     TResult Function(String? message)? maxLowerLimit,
+    TResult Function(String? message)? unknown,
     required TResult orElse(),
   }) {
     if (maxUpperLimit != null) {
@@ -523,6 +544,7 @@ class _$MaxUpperLimit implements MaxUpperLimit {
         positionerWriteFailure,
     required TResult Function(MaxUpperLimit value) maxUpperLimit,
     required TResult Function(MaxLowerLimit value) maxLowerLimit,
+    required TResult Function(UnknownPositionerFailure value) unknown,
   }) {
     return maxUpperLimit(this);
   }
@@ -534,6 +556,7 @@ class _$MaxUpperLimit implements MaxUpperLimit {
     TResult? Function(PositionerWriteFailure value)? positionerWriteFailure,
     TResult? Function(MaxUpperLimit value)? maxUpperLimit,
     TResult? Function(MaxLowerLimit value)? maxLowerLimit,
+    TResult? Function(UnknownPositionerFailure value)? unknown,
   }) {
     return maxUpperLimit?.call(this);
   }
@@ -545,6 +568,7 @@ class _$MaxUpperLimit implements MaxUpperLimit {
     TResult Function(PositionerWriteFailure value)? positionerWriteFailure,
     TResult Function(MaxUpperLimit value)? maxUpperLimit,
     TResult Function(MaxLowerLimit value)? maxLowerLimit,
+    TResult Function(UnknownPositionerFailure value)? unknown,
     required TResult orElse(),
   }) {
     if (maxUpperLimit != null) {
@@ -635,6 +659,7 @@ class _$MaxLowerLimit implements MaxLowerLimit {
     required TResult Function(String? message) positionerWriteFailure,
     required TResult Function(String? message) maxUpperLimit,
     required TResult Function(String? message) maxLowerLimit,
+    required TResult Function(String? message) unknown,
   }) {
     return maxLowerLimit(message);
   }
@@ -646,6 +671,7 @@ class _$MaxLowerLimit implements MaxLowerLimit {
     TResult? Function(String? message)? positionerWriteFailure,
     TResult? Function(String? message)? maxUpperLimit,
     TResult? Function(String? message)? maxLowerLimit,
+    TResult? Function(String? message)? unknown,
   }) {
     return maxLowerLimit?.call(message);
   }
@@ -657,6 +683,7 @@ class _$MaxLowerLimit implements MaxLowerLimit {
     TResult Function(String? message)? positionerWriteFailure,
     TResult Function(String? message)? maxUpperLimit,
     TResult Function(String? message)? maxLowerLimit,
+    TResult Function(String? message)? unknown,
     required TResult orElse(),
   }) {
     if (maxLowerLimit != null) {
@@ -674,6 +701,7 @@ class _$MaxLowerLimit implements MaxLowerLimit {
         positionerWriteFailure,
     required TResult Function(MaxUpperLimit value) maxUpperLimit,
     required TResult Function(MaxLowerLimit value) maxLowerLimit,
+    required TResult Function(UnknownPositionerFailure value) unknown,
   }) {
     return maxLowerLimit(this);
   }
@@ -685,6 +713,7 @@ class _$MaxLowerLimit implements MaxLowerLimit {
     TResult? Function(PositionerWriteFailure value)? positionerWriteFailure,
     TResult? Function(MaxUpperLimit value)? maxUpperLimit,
     TResult? Function(MaxLowerLimit value)? maxLowerLimit,
+    TResult? Function(UnknownPositionerFailure value)? unknown,
   }) {
     return maxLowerLimit?.call(this);
   }
@@ -696,6 +725,7 @@ class _$MaxLowerLimit implements MaxLowerLimit {
     TResult Function(PositionerWriteFailure value)? positionerWriteFailure,
     TResult Function(MaxUpperLimit value)? maxUpperLimit,
     TResult Function(MaxLowerLimit value)? maxLowerLimit,
+    TResult Function(UnknownPositionerFailure value)? unknown,
     required TResult orElse(),
   }) {
     if (maxLowerLimit != null) {
@@ -714,4 +744,164 @@ abstract class MaxLowerLimit implements PositionerFailure {
   @JsonKey(ignore: true)
   _$$MaxLowerLimitCopyWith<_$MaxLowerLimit> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UnknownPositionerFailureCopyWith<$Res>
+    implements $PositionerFailureCopyWith<$Res> {
+  factory _$$UnknownPositionerFailureCopyWith(_$UnknownPositionerFailure value,
+          $Res Function(_$UnknownPositionerFailure) then) =
+      __$$UnknownPositionerFailureCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? message});
+}
+
+/// @nodoc
+class __$$UnknownPositionerFailureCopyWithImpl<$Res>
+    extends _$PositionerFailureCopyWithImpl<$Res, _$UnknownPositionerFailure>
+    implements _$$UnknownPositionerFailureCopyWith<$Res> {
+  __$$UnknownPositionerFailureCopyWithImpl(_$UnknownPositionerFailure _value,
+      $Res Function(_$UnknownPositionerFailure) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$UnknownPositionerFailure(
+      freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UnknownPositionerFailure implements UnknownPositionerFailure {
+  const _$UnknownPositionerFailure([this.message]);
+
+  @override
+  final String? message;
+
+  @override
+  String toString() {
+    return 'PositionerFailure.unknown(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UnknownPositionerFailure &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UnknownPositionerFailureCopyWith<_$UnknownPositionerFailure>
+      get copyWith =>
+          __$$UnknownPositionerFailureCopyWithImpl<_$UnknownPositionerFailure>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? message) positionerReadFailure,
+    required TResult Function(String? message) positionerWriteFailure,
+    required TResult Function(String? message) maxUpperLimit,
+    required TResult Function(String? message) maxLowerLimit,
+    required TResult Function(String? message) unknown,
+  }) {
+    return unknown(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? message)? positionerReadFailure,
+    TResult? Function(String? message)? positionerWriteFailure,
+    TResult? Function(String? message)? maxUpperLimit,
+    TResult? Function(String? message)? maxLowerLimit,
+    TResult? Function(String? message)? unknown,
+  }) {
+    return unknown?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? message)? positionerReadFailure,
+    TResult Function(String? message)? positionerWriteFailure,
+    TResult Function(String? message)? maxUpperLimit,
+    TResult Function(String? message)? maxLowerLimit,
+    TResult Function(String? message)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PositionerReadFailure value)
+        positionerReadFailure,
+    required TResult Function(PositionerWriteFailure value)
+        positionerWriteFailure,
+    required TResult Function(MaxUpperLimit value) maxUpperLimit,
+    required TResult Function(MaxLowerLimit value) maxLowerLimit,
+    required TResult Function(UnknownPositionerFailure value) unknown,
+  }) {
+    return unknown(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PositionerReadFailure value)? positionerReadFailure,
+    TResult? Function(PositionerWriteFailure value)? positionerWriteFailure,
+    TResult? Function(MaxUpperLimit value)? maxUpperLimit,
+    TResult? Function(MaxLowerLimit value)? maxLowerLimit,
+    TResult? Function(UnknownPositionerFailure value)? unknown,
+  }) {
+    return unknown?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PositionerReadFailure value)? positionerReadFailure,
+    TResult Function(PositionerWriteFailure value)? positionerWriteFailure,
+    TResult Function(MaxUpperLimit value)? maxUpperLimit,
+    TResult Function(MaxLowerLimit value)? maxLowerLimit,
+    TResult Function(UnknownPositionerFailure value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (unknown != null) {
+      return unknown(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UnknownPositionerFailure implements PositionerFailure {
+  const factory UnknownPositionerFailure([final String? message]) =
+      _$UnknownPositionerFailure;
+
+  @override
+  String? get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$UnknownPositionerFailureCopyWith<_$UnknownPositionerFailure>
+      get copyWith => throw _privateConstructorUsedError;
 }
