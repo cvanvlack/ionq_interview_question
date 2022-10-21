@@ -1,5 +1,3 @@
-import 'dart:js_util';
-
 import 'package:calibration_routine/calibration_routine.dart';
 import 'package:calibration_routine/src/helpers.dart';
 import 'package:calibration_routine/src/models/calibration_1d.dart';
@@ -98,7 +96,7 @@ class GridCalibrationRoutine {
     for (var i = 0; i < _xNumSteps; i++) {
       final xPosition = _xStart + i * _xStep;
       for (var j = 0; j < _yNumSteps; j++) {
-        final yPosition = _yStart + i * _yStep;
+        final yPosition = _yStart + j * _yStep;
 
         //Go to the location and measure
         final measurementEither = _measureLocation(xPosition, yPosition);
@@ -170,10 +168,12 @@ class GridCalibrationRoutine {
       peakStd: peakY.peakStd,
     );
 
-    return right(Calibration2D(
-      xCalibration: xCalibration,
-      yCalibration: yCalibration,
-    ));
+    return right(
+      Calibration2D(
+        xCalibration: xCalibration,
+        yCalibration: yCalibration,
+      ),
+    );
   }
 
   Either<CalibrationFailure, Measurement> _measureLocation(
