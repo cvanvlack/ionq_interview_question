@@ -12,15 +12,12 @@ class MockIonResponse extends IonResponse {
     required super.numMeasurements,
     required Positioner xPositioner,
     required Positioner yPositioner,
-    double actualXPosition = 0,
-    double actualYPosition = 0,
+    required double actualXPosition,
+    required double actualYPosition,
     required double interactionWidth,
     bool brokenRead = false,
   })  : _xPositioner = xPositioner,
         _yPositioner = yPositioner,
-        // _actualXPosition = actualXPosition,
-        // _actualYPosition = actualYPosition,
-        // _interactionWidth = interactionWidth,
         _gaussian = Gaussian2D(
           x0: actualXPosition,
           y0: actualYPosition,
@@ -31,9 +28,6 @@ class MockIonResponse extends IonResponse {
 
   final Positioner _xPositioner;
   final Positioner _yPositioner;
-  // final double _actualXPosition;
-  // final double _actualYPosition;
-  // final double _interactionWidth;
 
   final Gaussian2D _gaussian;
 
