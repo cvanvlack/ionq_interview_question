@@ -66,7 +66,7 @@ void main() {
       const expected = std;
       final error = (actual - expected).abs();
 
-      const epsilon = 1e-4;
+      const epsilon = 1e-3;
       expect(
         error < epsilon,
         true,
@@ -86,11 +86,6 @@ void main() {
       const expected = std;
 
       final error = (actual - expected).abs();
-
-      //For this case, the best value from the weighted mean was 46.6088,
-      //which I believe is the correct value from the algorithm even if it
-      //doesn't match the gaussian to our intended 1e-6; Adjusting the epsilon
-      //to pass the test
 
       const coarseEpsilon = 4;
       expect(

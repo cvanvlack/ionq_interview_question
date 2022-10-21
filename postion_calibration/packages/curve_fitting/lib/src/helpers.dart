@@ -32,12 +32,12 @@ double weightedAverage(List<double> values, List<double> weights) {
 double weightedStdDeviation(List<double> values, List<double> weights) {
   var sum = 0.0;
   final weightedMean = weightedAverage(values, weights);
-  final sumWeights = weights.reduce((value, element) => value + element);
-  const epsilon = 1e-6;
-  final numNonZeroWeights = weights
-      .reduce((value, element) => element.abs() < epsilon ? value : value + 1);
   for (var i = 0; i < values.length; i++) {
     sum += (values[i] - weightedMean) * (values[i] - weightedMean) * weights[i];
   }
-  return sqrt(sum * numNonZeroWeights / sumWeights * (numNonZeroWeights - 1));
+
+  final sumWeights = weights.reduce((value, element) => value + element);
+
+  final val = sqrt(sum / sumWeights);
+  return val;
 }
