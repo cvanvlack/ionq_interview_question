@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:calibration_routine/calibration_routine.dart';
 import 'package:calibration_routine/src/helpers.dart';
 import 'package:calibration_routine/src/models/calibration_1d.dart';
