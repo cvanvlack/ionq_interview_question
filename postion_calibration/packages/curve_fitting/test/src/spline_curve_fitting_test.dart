@@ -14,22 +14,22 @@ void main() {
     test('Test Linear', () {
       const arrayLength = 101;
       final xvals = [for (var i = 0; i <= arrayLength; i++) i * 1.0];
-      final yvals = [for (final xval in xvals) xval];
+      final signals = [for (final xval in xvals) xval];
       const x = 50.5;
       const expectedY = 50.5;
       final spline = SplineCurveFitter();
-      final actual = spline.interpolate(xvals, yvals, x);
+      final actual = spline.interpolate(xvals, signals, x);
 
       expect((actual - expectedY).abs() < epsilon, true);
     });
 
     test('Test Sparse Linear', () {
       final xvals = [5.0, 20.0, 90.0];
-      final yvals = [10.0, 40.0, 180.0];
+      final signals = [10.0, 40.0, 180.0];
       const x = 60.0;
       const expectedY = 120.0;
       final spline = SplineCurveFitter();
-      final actual = spline.interpolate(xvals, yvals, x);
+      final actual = spline.interpolate(xvals, signals, x);
 
       expect((actual - expectedY).abs() < epsilon, true);
     });
@@ -40,11 +40,11 @@ void main() {
       const r0 = 50.0;
       const std = 10.5;
       final gaussian = Gaussian(r0: r0, std: std);
-      final yvals = [for (final xval in xvals) gaussian.calculate(xval)];
+      final signals = [for (final xval in xvals) gaussian.calculate(xval)];
       const x = r0 + std;
       const expectedY = 0.60653;
       final spline = SplineCurveFitter();
-      final actual = spline.interpolate(xvals, yvals, x);
+      final actual = spline.interpolate(xvals, signals, x);
 
       expect((actual - expectedY).abs() < epsilon, true);
     });
@@ -54,11 +54,11 @@ void main() {
       const r0 = 50.0;
       const std = 10.5;
       final gaussian = Gaussian(r0: r0, std: std);
-      final yvals = [for (final xval in xvals) gaussian.calculate(xval)];
+      final signals = [for (final xval in xvals) gaussian.calculate(xval)];
       const x = r0 + std;
       const expectedY = 0.60653;
       final spline = SplineCurveFitter();
-      final actual = spline.interpolate(xvals, yvals, x);
+      final actual = spline.interpolate(xvals, signals, x);
       final error = (actual - expectedY).abs();
 
       //For this case, the best value from the interpolation was 0.624688,

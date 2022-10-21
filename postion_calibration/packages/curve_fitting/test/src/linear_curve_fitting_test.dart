@@ -14,22 +14,22 @@ void main() {
     test('Test Linear', () {
       const arrayLength = 101;
       final xvals = [for (var i = 0; i <= arrayLength; i++) i * 1.0];
-      final yvals = [for (final xval in xvals) xval];
+      final signals = [for (final xval in xvals) xval];
       const x = 50.5;
       const expectedY = 50.5;
       final linear = LinearCurveFitter();
-      final actual = linear.interpolate(xvals, yvals, x);
+      final actual = linear.interpolate(xvals, signals, x);
 
       expect((actual - expectedY).abs() < epsilon, true);
     });
 
     test('Test Sparse Linear', () {
       final xvals = [5.0, 20.0, 90.0];
-      final yvals = [10.0, 40.0, 180.0];
+      final signals = [10.0, 40.0, 180.0];
       const x = 60.0;
       const expectedY = 120.0;
       final linear = LinearCurveFitter();
-      final actual = linear.interpolate(xvals, yvals, x);
+      final actual = linear.interpolate(xvals, signals, x);
 
       expect((actual - expectedY).abs() < epsilon, true);
     });
@@ -40,11 +40,11 @@ void main() {
       const r0 = 50.0;
       const std = 10.5;
       final gaussian = Gaussian(r0: r0, std: std);
-      final yvals = [for (final xval in xvals) gaussian.calculate(xval)];
+      final signals = [for (final xval in xvals) gaussian.calculate(xval)];
       const x = r0 + std;
 
       // for (var i = 0; i < xvals.length; i++) {
-      //   print('${xvals[i]}, ${yvals[i]}');
+      //   print('${xvals[i]}, ${signals[i]}');
       // }
 
       //Checked by hand
@@ -55,7 +55,7 @@ void main() {
       const b = 0.6353909887688034;
       const expectedY = a * (x - 60.0) + b;
       final linear = LinearCurveFitter();
-      final actual = linear.interpolate(xvals, yvals, x);
+      final actual = linear.interpolate(xvals, signals, x);
       final error = (actual - expectedY).abs();
       expect(
         error < epsilon,
@@ -71,11 +71,11 @@ void main() {
       const r0 = 50.0;
       const std = 10.5;
       final gaussian = Gaussian(r0: r0, std: std);
-      final yvals = [for (final xval in xvals) gaussian.calculate(xval)];
+      final signals = [for (final xval in xvals) gaussian.calculate(xval)];
       const x = r0 + std;
 
       // for (var i = 0; i < xvals.length; i++) {
-      //   print('${xvals[i]}, ${yvals[i]}');
+      //   print('${xvals[i]}, ${signals[i]}');
       // }
       //Checked by hand
       // 51.0, 0.9954751208601006
@@ -85,7 +85,7 @@ void main() {
       const b = 0.9954751208601006;
       const expectedY = a * (x - 51.0) + b;
       final linear = LinearCurveFitter();
-      final actual = linear.interpolate(xvals, yvals, x);
+      final actual = linear.interpolate(xvals, signals, x);
       final error = (actual - expectedY).abs();
 
       //For this case, the best value from the interpolation was 0.624688,
