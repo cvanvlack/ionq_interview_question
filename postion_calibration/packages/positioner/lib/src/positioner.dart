@@ -1,12 +1,13 @@
 import 'package:dartz/dartz.dart';
+import 'package:equatable/equatable.dart';
 import 'package:positioner/positioner.dart';
 
 /// {@template positioner}
-/// This is the class provides an interface to different kinds of positioners, 
+/// This is the class provides an interface to different kinds of positioners,
 /// which are responsible for positioning the the laser along a single
 /// axis. The positioner can travel between 0 and 1 inclusive.
 /// {@endtemplate}
-abstract class Positioner {
+abstract class Positioner extends Equatable {
   /// {@macro positioner}
   const Positioner();
 
@@ -33,4 +34,7 @@ abstract class Positioner {
   /// Gets the current position of the positioner.
   /// {@endtemplate}
   double get position;
+
+  @override
+  List<Object> get props => [];
 }

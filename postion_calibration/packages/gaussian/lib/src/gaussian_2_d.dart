@@ -1,11 +1,13 @@
 import 'dart:math';
 
+import 'package:equatable/equatable.dart';
+
 /// {@template gaussian}
 /// This class is responsible for calculating a Gaussian function according to
 /// the formula: f(x,y) = exp(-((x-x0)^2 +(y-y0)^2) / 2 / std^2). This form is chosen such
 /// that f(r0)=1.
 /// {@endtemplate}
-class Gaussian2D {
+class Gaussian2D extends Equatable {
   /// {@macro gaussian}
   const Gaussian2D({
     required double x0,
@@ -32,4 +34,7 @@ class Gaussian2D {
     final stdSq = pow(_std, 2);
     return exp(-(xval + yval) / 2 / stdSq);
   }
+
+  @override
+  List<Object> get props => [_x0, _y0, _std];
 }

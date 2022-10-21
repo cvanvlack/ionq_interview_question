@@ -81,4 +81,11 @@ class MockPositioner extends Positioner {
     return 'MockPositioner(_brokenRead: $_brokenRead, _brokenWrite: '
         '$_brokenWrite, _position: $_position)';
   }
+
+  @override
+  List<Object> get props => [
+        _brokenRead,
+        _brokenWrite,
+        position,
+      ];
 }

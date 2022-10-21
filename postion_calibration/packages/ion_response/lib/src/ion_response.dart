@@ -1,11 +1,12 @@
 import 'package:dartz/dartz.dart';
+import 'package:equatable/equatable.dart';
 import 'package:ion_response/ion_response.dart';
 
 /// {@template ion_response}
 /// This is the class the provides the interface for concrete implementations
 /// which are responsible for measuring the response from the ion.
 /// {@endtemplate}
-abstract class IonResponse {
+abstract class IonResponse extends Equatable {
   /// {@macro ion_response}
   const IonResponse({
     required int numMeasurements,
@@ -38,4 +39,7 @@ abstract class IonResponse {
   /// 100.
   /// {@endtemplate}
   Either<IonResponseFailure, int> measureIonResponse();
+
+  @override
+  List<Object> get props => [_numMeasurements];
 }

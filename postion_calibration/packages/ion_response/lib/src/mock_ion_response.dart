@@ -64,4 +64,13 @@ class MockIonResponse extends IonResponse {
     }
     return right(numPhotons);
   }
+
+  @override
+  List<Object> get props => [
+        _brokenRead,
+        _xPositioner,
+        _yPositioner,
+        _gaussian,
+        super.numMeasurements,
+      ];
 }
