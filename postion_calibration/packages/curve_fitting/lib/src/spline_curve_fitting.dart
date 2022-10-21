@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:curve_fitting/curve_fitting.dart';
 import 'package:curve_fitting/src/helpers.dart';
 import 'package:equations/equations.dart';

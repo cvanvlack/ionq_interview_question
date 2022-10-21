@@ -17,6 +17,7 @@ class PeakInfo extends Equatable {
   final double _peakSignal;
   final double _peakStd;
 
+  /// Creates a PeakInfo with all nans for when something goes wrong
   factory PeakInfo.empty() => const PeakInfo(
         peakX: double.nan,
         peakSignal: double.nan,

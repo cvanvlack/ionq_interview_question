@@ -21,10 +21,10 @@ List<InterpolationNode> createNodes(List<double> xvals, List<double> signals) {
 /// Calculates the weighted average
 double weightedAverage(List<double> values, List<double> weights) {
   var sum = 0.0;
-  final sumWeights = weights.reduce((value, element) => value + element);
   for (var i = 0; i < values.length; i++) {
     sum += values[i] * weights[i];
   }
+  final sumWeights = weights.reduce((value, element) => value + element);
   return sum / sumWeights;
 }
 
