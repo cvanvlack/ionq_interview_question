@@ -30,7 +30,25 @@ class SplineCurveFitter extends CurveFitter {
   /// todo: Enforce that xvals and signals are the same length.
   /// {@endtemplate}
   @override
-  double getPeakLocation(List<double> xvals, List<double> signals) {
-    return signals.isEmpty ? double.nan : signals.reduce(max);
+  PeakInfo getPeakLocation(List<double> xvals, List<double> signals) {
+    if (signals.isEmpty) {
+      return PeakInfo.empty();
+    }
+    var peakX = double.negativeInfinity;
+    var peakSignal = double.negativeInfinity;
+    for (var i = 0; i < xvals.length; i++) {
+      if (signals[i] > peakSignal) {
+        peakX = xvals[i];
+        peakSignal = signals[i];
+      }
+    }
+    final peakStd = weightedStdDeviation(xvals, signals);
+    final peakInfo = PeakInfo(
+      peakX: peakX,
+      peakSignal: peakSignal,
+      peakStd: peakStd,
+    );
+
+    return peakInfo;
   }
 }

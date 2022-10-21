@@ -1,3 +1,4 @@
+import 'package:curve_fitting/curve_fitting.dart';
 import 'package:equatable/equatable.dart';
 
 /// {@template curve_fitter}
@@ -21,7 +22,7 @@ abstract class CurveFitter extends Equatable {
   /// location, run interpolate.
   /// todo: Enforce that xvals and signals are the same length.
   /// {@endtemplate}
-  double getPeakLocation(List<double> xvals, List<double> signals);
+  PeakInfo getPeakLocation(List<double> xvals, List<double> signals);
 
   @override
   List<Object> get props => [];

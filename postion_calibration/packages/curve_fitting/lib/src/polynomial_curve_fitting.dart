@@ -28,7 +28,10 @@ class PolyNomialCurveFitter extends CurveFitter {
   /// Finds the peak location using polynomial fitting
   /// {@endtemplate}
   @override
-  double getPeakLocation(List<double> xvals, List<double> signals) {
+  PeakInfo getPeakLocation(List<double> xvals, List<double> signals) {
+    if (signals.isEmpty) {
+      return PeakInfo.empty();
+    }
     //Fit to a polynomial
     final nodes = createNodes(xvals, signals);
     final polyInterp = PolynomialInterpolation(nodes: nodes);
@@ -45,16 +48,21 @@ class PolyNomialCurveFitter extends CurveFitter {
 
     final rootsInRange = _findRootsInRange(xvals.first, xvals.last, roots);
 
-    //If more than one root in range return the root closest to the maximum.
-    if (rootsInRange.length == 1) {
-      return rootsInRange[0];
-    }
-    if (rootsInRange.length > 1) {
+    if (rootsInRange.isNotEmpty) {
       //Use the root closest to the location of the maximum
-      return _findClosestRoot(roots, xValOfMaxYVal);
+      final peakX = _findClosestRoot(roots, xValOfMaxYVal);
+      final peakSignal = interpolate(xvals, signals, peakX);
+      final peakStd = weightedStdDeviation(xvals, signals);
+      final peakInfo = PeakInfo(
+        peakX: peakX,
+        peakSignal: peakSignal,
+        peakStd: peakStd,
+      );
+
+      return peakInfo;
     }
     //If there are no roots in the range return nan
-    return double.nan;
+    return PeakInfo.empty();
   }
 
   //finds the root closest to the xvalue
@@ -68,7 +76,10 @@ class PolyNomialCurveFitter extends CurveFitter {
 
   //Only use the roots that are in range
   List<double> _findRootsInRange(
-      double minRange, double maxRange, List<double> roots,) {
+    double minRange,
+    double maxRange,
+    List<double> roots,
+  ) {
     final rootsInRange = <double>[];
     for (final root in roots) {
       if (root >= minRange && root <= maxRange) {
